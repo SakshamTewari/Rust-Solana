@@ -15,3 +15,11 @@ async function main() {
   const connection = new web3.Connection(web3.clusterApiUrl('devnet'));
   await pingProgram(connection, payer);
 }
+
+function initializeKeyPair() {
+  const secret = JSON.parse(fs.readFileSync('secretKey.json') || '[]');
+  const secretKey = new Uint8Array(secret);
+
+  const key_pair_from_secret_key = web3.Keypair.fromSecretKey(secretKey);
+  return key_pair_from_secret_key;
+}
