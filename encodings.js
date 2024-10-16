@@ -1,3 +1,5 @@
+const bs58 = require('bs58');
+
 // Bytes To ASCII
 function bytesToAscii(byteArray) {
   return new TextDecoder().decode(byteArray);
@@ -21,3 +23,11 @@ function base64Encoded(byteArray) {
 
 const uint8Array = new Uint8Array([72, 101, 108, 108, 111]);
 console.log(base64Encoded(uint8Array));
+
+//Base58
+function uint8ArrayToBase58(uint8Array) {
+  return bs58.encode(uint8Array);
+}
+
+const byteArray = new Uint8Array([72, 101, 108, 108, 111]); // Corresponds to "Hello"
+console.log(uint8ArrayToBase58(byteArray)); // Output: Base58 encoded string
