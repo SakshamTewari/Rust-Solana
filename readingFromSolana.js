@@ -1,4 +1,9 @@
-const { clusterApiUrl, Connection, PublicKey } = require('@solana/web3.js');
+const {
+  clusterApiUrl,
+  Connection,
+  PublicKey,
+  LAMPORTS_PER_SOL,
+} = require('@solana/web3.js');
 
 // Send req to JSON RPC through devnet
 const connection = new Connection(clusterApiUrl('devnet'));
@@ -13,5 +18,5 @@ async function getBalanceWeb3(address) {
 const publicKey = new PublicKey('dv1ZAGvdsz5hHLwWXsVnM94hWf1pjbKVau1QVkaMJ92');
 
 getBalanceWeb3(publicKey).then((balance) => {
-  console.log(balance);
+  console.log(balance / LAMPORTS_PER_SOL); //1 sol = 10^9 Lamport
 });
