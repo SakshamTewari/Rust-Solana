@@ -9,6 +9,8 @@
 
 const web3 = require('@solana/web3.js');
 const fs = require('fs');
+const PROGRAM_ADDRESS = '28rDknpdBPNu5RU9yxbVqqHwnbXB9qaCigw1M53g7Nps';
+const PROGRAM_DATA_ADDRESS = '88B9r8s7adZZirAxGNQfvT2Zy7vwZtfCATaX27ZLP7Y1';
 
 async function main() {
   const payer = initializeKeyPair();
@@ -23,3 +25,10 @@ function initializeKeyPair() {
   const key_pair_from_secret_key = web3.Keypair.fromSecretKey(secretKey);
   return key_pair_from_secret_key;
 }
+
+async function pingProgram(connection, payer) {
+  const transaction = new web3.Transaction();
+  const instruction = new web3.TransactionInstruction({});
+}
+
+// Each instruction needs 3 things : Accounts[] , ProgramId , DataBuffer
