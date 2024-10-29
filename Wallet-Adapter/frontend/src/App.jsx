@@ -4,16 +4,19 @@ import { WalletDisconnectButton, WalletModalProvider, WalletMultiButton } from '
 import '@solana/wallet-adapter-react-ui/styles.css';
 import Airdrop from './components/Airdrop';
 
+
+// Cannot use 'https://api.devnet.solana.com' RPC url as this will throw 429 status code 'too many requests' when requesting for Airdrops
+// Hence, use your own Alchemy RPC url
+
 function App() {
 
   return (
     <>
-      <ConnectionProvider endpoint='https://api.devnet.solana.com'>
+      <ConnectionProvider endpoint='https://solana-devnet.g.alchemy.com/v2/qhaTIRsU2Pu_Pfd8cKkDGLx2QN581en_'>
         <WalletProvider wallets={[]} autoConnect>
           <WalletModalProvider>
             <WalletMultiButton></WalletMultiButton>
             <WalletDisconnectButton></WalletDisconnectButton>
-            <div>hi there</div>
             <Airdrop />
           </WalletModalProvider>
         </WalletProvider>
