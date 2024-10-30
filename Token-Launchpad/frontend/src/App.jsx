@@ -1,0 +1,14 @@
+import { useState } from 'react'
+import './App.css'
+import TokenLaunchpad from './components/TokenLaunchpad'
+
+function App() {
+
+  return (
+    <>
+      <TokenLaunchpad />
+    </>
+  )
+}
+
+export default App
