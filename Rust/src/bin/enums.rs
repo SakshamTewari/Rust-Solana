@@ -4,6 +4,12 @@ fn main() {
         "Area of Rectangle is {}",
         print_area(Shape::Rectangle(5.0, 5.0))
     );
+
+    let index = find_first_a(String::from("Saksham"));
+    match index {
+        Some(val) => println!("Index is {}", val),
+        None => println!("Not found"),
+    };
 }
 
 enum Direction {
@@ -25,4 +31,19 @@ fn print_area(shape: Shape) -> f64 {
         Shape::Rectangle(a, b) => a * b,
         Shape::Circle(r) => 3.14 * r * r,
     }
+}
+
+// Options/Result Enum
+
+/*
+    Options enum : lets you return 'some' value or 'none' value
+*/
+
+fn find_first_a(s: String) -> Option<i32> {
+    for (index, character) in s.chars().enumerate() {
+        if character == 'a' {
+            return Some(index as i32);
+        }
+    }
+    return None;
 }
